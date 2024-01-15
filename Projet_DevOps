@@ -25,7 +25,7 @@ pipeline {
     "Decembre | Faire de la sophrologie", "Decembre | Participer aux fetes de fins d'annees avec ceux qu'on aime"], description: 'Entrer les challenge du mois que vous souahitez faire : ')
   }
 	
-	stages{
+stages{
     stage ('Janvier') {
       steps {
         script {
@@ -45,7 +45,30 @@ pipeline {
           }
         }
       }       
-    }            
+    }  
+
+/*******************Mois de Fevrier************************/
+    stage ('Fevrier') {
+      steps {
+        script {
+          def challenges = "${params.CHALLENGES}"
+          def today = "${params.DATE_DU_JOUR}"
+          def mois = "${params.MOIS}"
+
+          if (mois == "Fevrier" && today == '1') {
+            challenges = "Prendre du temps pour écrire, Rédiger et garder précieusement un journal intime"
+            echo "Bienvenue au mois de $mois"
+            echo "Voici les challenges possibles : $challenges"
+            sleep 10
+          }
+          else if (mois == "Janvier" && today > '1' && today <= '20') {
+            echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
+            sleep 10         
+          }
+        }
+      }       
+    }
+
 	  
     stage ('TEST') {
       steps {
