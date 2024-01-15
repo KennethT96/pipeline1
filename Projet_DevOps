@@ -291,6 +291,15 @@ stages{
           }
         }
       }        
-    }    
+    }   
+
+    stage ('DEPLOY'){
+	steps{
+		script{
+			echo 'Deploy COMPLETE!'
+                }
+            }
+        }
+
   }        
 }
