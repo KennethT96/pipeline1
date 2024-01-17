@@ -13,7 +13,7 @@ pipeline {
        
     choice(name: 'CHALLENGES', choices: ["Janvier | Rediger et garder precieusement un journal intime", "Janvier | Prendre du temps pour ecrire",
     "Fevrier | Bricoler des meubles", "Fevrier | Acheter des plantes",
-    "Mars | Faire plus d'exercice", "Mars | Faire des activites que l'on aime (balade, cine)", 
+    "Mars | Faire plus d'exercice", "Mars | Faire des activites que l on aime (balade, cine)", 
     "Avril | Faire un don a une association", "Avril | Envoyer un message gentil a sa famille",
     "Mai | Voyager en famille", "Mai | Effectuer un marathon",
     "Juin | Proposer un week-end en famille", "Juin | Appeler sa famille",  
@@ -34,7 +34,7 @@ stages{
           def mois = "${params.MOIS}"
 
           if (mois == "Janvier" ) {
-            challenges = "Prendre du temps pour écrire, Rédiger et garder précieusement un journal intime"
+            challenges = "Prendre du temps pour ecrire, Rediger et garder precieusement un journal intime"
             echo "Bienvenue au mois de $mois"
             echo "Voici les challenges possibles : $challenges"
             sleep 10
@@ -56,19 +56,18 @@ stages{
           def today = "${params.DATE_DU_JOUR}"
           def mois = "${params.MOIS}"
 
-          if (mois == "Fevrier" && today == '1') {
+          if (mois == "Fevrie") {
             challenges = "Acheter des plantes, Bricoler des meubles"
             echo "Bienvenue au mois de $mois"
             echo "Voici les challenges possibles : $challenges"
             sleep 10
-          }
-          else if (mois == "Fevrier" && today > '1' && today <= '20') {
-            echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
-            sleep 10         
+            if (today >= '20') {
+            echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."      
           }
         }
       }       
     }
+  }
 /*******************Mois de Mars************************/
     stage ('Mars') {
       steps {
