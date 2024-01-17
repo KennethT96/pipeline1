@@ -1,13 +1,10 @@
-def tester_pourcentage_superieur_50():
-    us_sup_50 = [] 
+def test_params(today):
+    if today > 20:
+        print("Il ne vous reste plus beaucoup de temps pour faire vos objectifs.")
+    else:
+        print("Vous avez encore du temps pour atteindre vos objectifs.")
 
-    if us_a >= 50:
-        us_sup_50.append("US A")
-    if us_b >= 50:
-        us_sup_50.append("US B")
-    if us_c >= 50:
-        us_sup_50.append("US C")
-    if us_d >= 50:
-        us_sup_50.append("US D")
-
-    return us_sup_50
+# Importer le module sys pour pouvoir accéder aux arguments de la ligne de commande
+import sys
+today = int(sys.argv[1])
+test_params(today)
