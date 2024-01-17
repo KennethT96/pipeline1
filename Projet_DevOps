@@ -278,9 +278,9 @@ stages{
         }
       }       
     }
-/***************************/
+
 /*******************Calcul de l'IMC************************/
-stage('Calcul de l\'IMC') {
+/*stage('Calcul de l\'IMC') {
     steps {
         script {
             def poids = input(message: 'Entrez votre poids en kilogrammes', parameters: [string(defaultValue: '', description: 'Poids', name: 'POIDS')])
@@ -302,7 +302,7 @@ stage('Calcul de l\'IMC') {
             }
         }
     }
-}
+}*/
 
 
 /***********************/
