@@ -39,7 +39,7 @@ stages{
             echo "Voici les challenges possibles : $challenges"
             sleep 10
           }
-          sh (script: "python3 ./projet.py ${today}")
+          bat 'python3 projet.py ${today}'
         }
       }       
     }  
