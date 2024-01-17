@@ -5,7 +5,6 @@ def test_params(today):
         print("Vous avez encore du temps pour atteindre vos objectifs.")
 
 # Importer le module sys pour pouvoir accéder aux arguments de la ligne de commande
-if __name__ == "__main__":
 import sys
 today = int(sys.argv[1])
 test_params(today)
