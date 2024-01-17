@@ -1,4 +1,4 @@
-def tester_pourcentage_superieur_50(us_a, us_b, us_c, us_d):
+def tester_pourcentage_superieur_50():
     us_sup_50 = [] 
 
     if us_a >= 50:
