@@ -33,13 +33,12 @@ stages{
           def today = "${params.DATE_DU_JOUR}"
           def mois = "${params.MOIS}"
 
-          if (mois == "Janvier" && today == '1') {
+          if (mois == "Janvier" ) {
             challenges = "Prendre du temps pour écrire, Rédiger et garder précieusement un journal intime"
             echo "Bienvenue au mois de $mois"
             echo "Voici les challenges possibles : $challenges"
             sleep 10
-          }
-	  else if (mois == "Janvier" && today > '1' && today <= '20') {
+	  if (mois == "Janvier" && today > '1' && today <= '20') {
             echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
             sleep 10         
           }
@@ -47,6 +46,7 @@ stages{
         }
       }       
     }  
+  }
 
 /*******************Mois de Fevrier************************/
     stage ('Fevrier') {
