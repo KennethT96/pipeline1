@@ -42,7 +42,7 @@ stages{
               echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
               sleep 10         
               }
-         	 bat(script: "python3 ./projet.py ${today}")
+         	/* bat(script: "python3 ./projet.py ${today}") */
         }
       }       
     }  
