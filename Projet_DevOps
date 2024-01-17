@@ -278,7 +278,34 @@ stages{
         }
       }       
     }
-	  
+/***************************/
+/*******************Calcul de l'IMC************************/
+stage('Calcul de l\'IMC') {
+    steps {
+        script {
+            def poids = input(message: 'Entrez votre poids en kilogrammes', parameters: [string(defaultValue: '', description: 'Poids', name: 'POIDS')])
+
+            def taille = input(message: 'Entrez votre taille en mètres', parameters: [string(defaultValue: '', description: 'Taille', name: 'TAILLE')])
+
+            def imc = poids.toDouble() / (taille.toDouble() * taille.toDouble())
+
+            echo "Votre IMC est : ${imc}"
+
+            if (imc < 18.5) {
+                echo 'Vous êtes en sous-poids.'
+            } else if (imc >= 18.5 && imc < 25) {
+                echo 'Votre poids est normal.'
+            } else if (imc >= 25 && imc < 30) {
+                echo 'Vous êtes en surpoids.'
+            } else {
+                echo 'Vous êtes obèse.'
+            }
+        }
+    }
+}
+
+
+/***********************/
     stage ('TEST') {
       steps {
         script{
@@ -300,6 +327,7 @@ stages{
                 }
             }
         }
+
 
   }        
 }
