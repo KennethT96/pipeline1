@@ -29,7 +29,7 @@ stages{
     stage ('Janvier') {
       steps {
         script {
-          def challenges = "${params.CHALLENGES}"
+          //def challenges = "${params.CHALLENGES}"
           def today = "${params.DATE_DU_JOUR}"
           def mois = "${params.MOIS}"
 
@@ -37,6 +37,7 @@ stages{
             challenges = "Prendre du temps pour ecrire, Rediger et garder precieusement un journal intime"
             echo "Bienvenue au mois de $mois"
             echo "Voici les challenges possibles : $challenges"
+	    def selectedChallenges = "${params.CHALLENGES}".split(',').toList()
             sleep 10
 	    if (today >= '20') {
               echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
@@ -81,10 +82,10 @@ stages{
             echo "Bienvenue au mois de $mois"
             echo "Voici les challenges possibles : $challenges"
             sleep 10
-          }
-          else if (mois == "Mars" && today > '1' && today <= '20') {
-            echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
-            sleep 10         
+            if (today >= '20') {
+              echo "Attention, nous sommes le $today du mois, il ne vous reste plus beaucoup de temps pour faire vos objectifs."
+              sleep 10         
+              }
           }
         }
       }       
