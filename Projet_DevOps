@@ -35,7 +35,6 @@ stages{
 
           if (mois == "Janvier" ) {
             challenges = "Prendre du temps pour ecrire, Rediger et garder precieusement un journal intime"
-            def selectedChallenges = "${params.CHALLENGES}".split(',').toList()
 	    echo "Bienvenue au mois de $mois"
             echo "Voici les challenges possibles : $challenges"
 	    
